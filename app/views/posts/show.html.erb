@@ -1,11 +1,9 @@
-
 <div>
   <h1 class="mb-5">Post</h1>
 </div>
 <div>
   <%= render partial: @post_partial, locals: { post: @post } %>
 </div>
-  
 
 <%= link_to "Home", root_path, class: "btn btn-primary mb-4" %>
 
@@ -17,7 +15,6 @@
 <% else %>
   <p>No comments yet.</p>
 <% end %>
-
 
 <h5 class="mt-4">Add new comment</h5>
 <%= form_for([@post, Comment.new], url: post_comments_path(@post)) do |f| %>

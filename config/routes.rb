@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
+  resources :text_posts, only: [:show]
+  resources :image_posts, only: [:show]
+
   resources :users do
     member do
       post 'follow'

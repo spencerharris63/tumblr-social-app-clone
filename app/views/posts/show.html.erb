@@ -1,0 +1,29 @@
+
+<div>
+  <h1 class="mb-5">Post</h1>
+</div>
+<div>
+  <%= render partial: @post_partial, locals: { post: @post } %>
+</div>
+  
+
+<%= link_to "Home", root_path, class: "btn btn-primary mb-4" %>
+
+<h4 class="mt-4">Comments</h4>
+<% if @post.comments.any? %>
+  <div class="comment-container p-3 mb-4 bg-light">
+    <%= render @post.comments %>
+  </div>
+<% else %>
+  <p>No comments yet.</p>
+<% end %>
+
+
+<h5 class="mt-4">Add new comment</h5>
+<%= form_for([@post, Comment.new], url: post_comments_path(@post)) do |f| %>
+  <div class="form-group">
+    <%= f.label :body %><br>
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-primary my-4" %>
+<% end %>

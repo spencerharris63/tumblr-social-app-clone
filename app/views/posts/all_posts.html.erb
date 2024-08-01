@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <div class="row mb-5">
+    <div class="col-auto">
+      <h1 class="<%= 'active' if current_page?(root_path) %>">
+        <%= link_to "Home", root_path %>
+      </h1>
+    </div>
+    <div class="col-auto">
+      <h1 class="<%= 'active' if current_page?(all_posts_path) %>">
+        <%= link_to "Discover", all_posts_path %>
+      </h1>
+    </div>
+  </div>
+
+  <% @posts.each do |post| %>
+    <% if post.is_a?(TextPost) %>
+      <%= render partial: 'text_posts/text_post', locals: { post: post } %>
+    <% elsif post.is_a?(ImagePost) %>
+      <%= render partial: 'image_posts/image_post', locals: { post: post } %>
+    <% end %>
+  <% end %>
+</div>

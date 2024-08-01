@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SocialApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!-- Bootstrap CSS from jsDelivr -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <% if notice %>
+        <div class="alert alert-success"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger"><%= alert %></div>
+      <% end %>
+
+      <div class="float-end">
+        <% if current_user %>
+          <%= link_to "Create New Post", new_post_path, class: "btn btn-primary" %>
+          <%= link_to "Log Out", logout_path, class: "btn btn-link" %>
+        <% else %>
+          <%= link_to "Log In", login_path, class: "btn btn-link" %> or
+          <%= link_to "Sign Up", signup_path, class: "btn btn-link" %>
+        <% end %>
+      </div>
+
+      <%= yield %>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js from jsDelivr -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-Q4ot/KW4+QZZ5iBLNRU5zzP7kGnADZh6uqjG3lKTxK5kFzNVoQou04Bd2Fo4GzFp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7Wj1kxGk6n6UJp3r+I8tMeJxL3RrEjTQIlKKxQ5kxgs0KC5" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+
+<div class="container mt-5">
+  <div class="page-header">
+    <h1>Create Image Post</h1>
+  </div>
+  <%= form_for @image_post, url: create_image_post_posts_path do |f| %>
+    <% if @image_post.errors.any? %>
+      <div class="alert alert-danger">
+        <strong>
+          <%= pluralize(@image_post.errors.count, "error") %> prevented this post from being saved:
+        </strong>
+        <ul>
+          <% @image_post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group mb-3">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="form-group mb-3">
+      <%= f.label :body %>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+
+    <div class="form-group mb-3">
+      <%= f.label :url %>
+      <%= f.text_field :url, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Create Post", class: "btn btn-primary" %>
+  <% end %>
+</div>

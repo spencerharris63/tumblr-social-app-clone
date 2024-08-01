@@ -1,0 +1,27 @@
+<div class="card mb-4 card-custom-border">
+  <div class="card-header bg-custom">
+    <div class="row justify-content-between">
+      <div class="col-auto">
+        <h4 class="card-title">
+           <%= post.title %>
+        </h4>
+      </div>
+      <div class="col-auto">
+        <%= render 'users/follow_button', user: post.user %>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <p><em>By <%= post.user.name %></em></p>
+    <p><%= post.body %></p>
+    <div class="row justify-content-between">
+      <div class="col-auto">
+        <p><small>Posted <%= link_to time_ago_in_words(post.created_at) + " ago", post_path(post) %></small></p>
+      </div>
+      <div class="col-auto">
+        <p><small>Comments: <%= post.comments.count %></small></p>
+      </div>
+    </div>
+    
+  </div>
+</div>

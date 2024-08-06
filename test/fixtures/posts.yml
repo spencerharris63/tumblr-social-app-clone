@@ -1,15 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# test/fixtures/posts.yml
 
-one:
-  title: MyString
-  body: MyText
-  url: MyString
-  type: 
-  user: one
+post1:
+  title: "Post 1"
+  body: "This is the body of post 1"
+  user: user1 # Reference to user1 fixture
 
-two:
-  title: MyString
-  body: MyText
-  url: MyString
-  type: 
-  user: two
+post2:
+  title: "Post 2"
+  body: "This is the body of post 2"
+  user: user2 # Reference to user2 fixture

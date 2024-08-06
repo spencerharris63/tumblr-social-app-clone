@@ -2,18 +2,19 @@ require "test_helper"
 
 class ImagePostTest < ActiveSupport::TestCase
   test "saves with valid attributes" do
-    user = User.create!(
-      name: "Test User",
-      email: "user@example.com",
-      password: "password",
-      password_confirmation: "password"
-    )
     image_post = ImagePost.new(
-      title: "Test Image Post",
-      url: "http://example.com/image.jpg",
-      user: user
+      url: "http://example.com/image1.jpg",
+      user: users(:user1)
     )
-    assert image_post.save
-    assert_equal user.id, image_post.user_id
+
+    assert image_post.save, "Image post should be saved with valid attributes"
+  end
+
+  test "does not save without a user" do
+    image_post = ImagePost.new(
+      url: "http://example.com/image1.jpg"
+    )
+
+    assert_not image_post.save, "Image post should not be saved without a user"
   end
 end

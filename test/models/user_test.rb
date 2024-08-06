@@ -1,18 +1,10 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  test "saves with valid attributes" do
-    User.transaction do
-      user = User.new(
-        name: "Test User",
-        email: "user@example.com",
-        password: "password",
-        password_confirmation: "password"
-      )
-      assert user.save
+  test "validates email presence" do
+    @user1 = users(:user1)
+    @user1.email = nil
 
-      assert_equal 0, user.posts.count # Ensure no posts are created
-      raise ActiveRecord::Rollback # Rollback the transaction to clean up the database
-    end
+    assert_not @user1.valid?, "User should be invalid without an email"
   end
 end

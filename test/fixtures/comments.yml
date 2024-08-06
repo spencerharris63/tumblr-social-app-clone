@@ -1,11 +1,9 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+comment1:
+  body: "This is a comment"
+  user: user1
+  post: text_post1
 
-one:
-  body: MyText
-  post: one
-  user: one
-
-two:
-  body: MyText
-  post: two
-  user: two
+comment2:
+  body: "This is another comment"
+  user: user2
+  post: image_post1

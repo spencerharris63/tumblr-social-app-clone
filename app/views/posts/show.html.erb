@@ -2,7 +2,7 @@
   <h1 class="mb-5">Post</h1>
 </div>
 <div>
-  <%= render partial: @post_partial, locals: { post: @post } %>
+  <%= render partial: @post_partial, locals: { post: @post, show_page: true } %>
 </div>
 
 <%= link_to "Home", root_path, class: "btn btn-primary mb-4" %>

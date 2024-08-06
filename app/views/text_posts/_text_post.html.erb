@@ -16,12 +16,15 @@
     <p><%= post.body %></p>
     <div class="row justify-content-between">
       <div class="col-auto">
-        <p><small>Posted <%= link_to time_ago_in_words(post.created_at) + " ago", post_path(post) %></small></p>
+        <p><small>Posted <%= time_ago_in_words(post.created_at) %> ago</small></p>
       </div>
       <div class="col-auto">
         <p><small>Comments: <%= post.comments.count %></small></p>
       </div>
     </div>
+    <% unless local_assigns[:show_page] %>
+      <p><%= link_to "View Post", post_path(post) %></p>
+    <% end %>
     
   </div>
 </div>

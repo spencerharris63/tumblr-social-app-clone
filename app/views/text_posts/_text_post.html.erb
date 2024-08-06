@@ -7,7 +7,9 @@
         </h4>
       </div>
       <div class="col-auto">
-        <%= render 'users/follow_button', user: post.user %>
+        <% if post.user != current_user %>
+          <%= render 'users/follow_button', user: post.user %>
+        <% end %>
       </div>
     </div>
   </div>
